@@ -1,0 +1,415 @@
+
+The following have been reloaded with a version change:
+  1) hdf5/1.12.0 => hdf5/1.10.2       3) mvapich2/2.3.3 => mvapich2/2.3.2
+  2) intel/19.0.5 => intel/18.0.3
+
+Lmod has detected the following error: These module(s) exist but cannot be
+loaded as requested: "intelmpi/2019.7"
+   Try: "module spider intelmpi/2019.7" to see how to load the module(s).
+
+
+
++ cd /users/PAS2055/dpochik/test/athena_CURRENT_WORKING_DIRECTORY_DIR/athena_WORKING_DIR/athena_2D_github_repo_DIR/athena_accretion_2D
++ cores=256
++ athinput=athinput.accretion_auto
++ txtfilename=Mach_3.0_RPNS_30_MPNS_1.4_Enue_12.6156_Enueb_18.9234_Tau_0.666666_Mdot_0.7_Lnu_40.txt
++ IC_RhoE=8.559069829822928e6
++ IC_RhoB=1.671726930916e11
++ IC_vE=-1.301642145460e9
++ Mach=3.0
++ tmax=7.5e-1
++ d_t=3.75e-3
++ rMin=30.0e5
++ rMax=1.0e8
++ nR=256
++ nTheta=128
++ rScale=1.0137917322212853
++ eosdir=helmeos/helm_table.dat
++ eps_nueb=18.9234
++ eps_nue=12.6156
++ GM=1.8585255780000003e26
++ Lnu=40
++ nCell_r=16
++ nCell_theta=8
++ DIRNAME=testrun_DIR
++ pgen=accretion_SingleNR_FixedKappa_2D
++ eos=general/helmholtz_gamma_etot
++ nscalar=2
++ echo accretion_SingleNR_FixedKappa_2D
+accretion_SingleNR_FixedKappa_2D
++ echo general/helmholtz_gamma_etot
+general/helmholtz_gamma_etot
++ echo 2
+2
++ echo /apps/hdf5/intel/18.0/mvapich2/2.3/1.10.2
+/apps/hdf5/intel/18.0/mvapich2/2.3/1.10.2
++ mpiexec -n 256 bin/athena -i athinput.accretion_auto Mach_3.0_RPNS_30_MPNS_1.4_Enue_12.6156_Enueb_18.9234_Tau_0.666666_Mdot_0.7_Lnu_40.txt problem/rho_f=8.559069829822928e6 problem/rho_0=1.671726930916e11 problem/v_f=-1.301642145460e9 problem/MachNumber=3.0 time/tlim=7.5e-1 output1/dt=3.75e-3 output2/dt=3.75e-3 output4/dt=3.75e-3 mesh/x1min=30.0e5 mesh/x1max=1.0e8 mesh/nx1=256 mesh/nx2=128 mesh/x1rat=1.0137917322212853 hydro/eos_file_name=helmeos/helm_table.dat problem/eps_nubar=18.9234 problem/eps_nu=12.6156 problem/GM=1.8585255780000003e26 problem/L_nubar=40 problem/L_nu=40 problem/file=Mach_3.0_RPNS_30_MPNS_1.4_Enue_12.6156_Enueb_18.9234_Tau_0.666666_Mdot_0.7_Lnu_40.txt meshblock/nx1=16 meshblock/nx2=8 -d testrun_DIR
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LANG = "C.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER outer BC.
+Using USER inner BC 0.
+Using IC file: Mach_3.0_RPNS_30_MPNS_1.4_Enue_12.6156_Enueb_18.9234_Tau_0.666666_Mdot_0.7_Lnu_40.txt
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+t = 0, using default rho0
+
+Setup complete, entering main loop...
+
+cycle=0 time=0.0000000000000000e+00 dt=3.5886696269460263e-06
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+time = 0s or ncycle < 1, using default rho0
+cycle=1000 time=3.4476474222668186e-03 dt=3.4417751735100217e-06
+cycle=2000 time=6.8453311438802242e-03 dt=3.3715860580026852e-06
+cycle=3000 time=1.0260270134451075e-02 dt=3.4296340691324725e-06
+cycle=4000 time=1.3674420496531597e-02 dt=3.3944929109343237e-06
+cycle=5000 time=1.7132144927095663e-02 dt=3.4342931754795581e-06
+cycle=6000 time=2.0490243853750201e-02 dt=3.3873368823312753e-06
+cycle=7000 time=2.3942368677549709e-02 dt=3.4266869715414315e-06
+cycle=8000 time=2.7320048416995646e-02 dt=3.3160812851603265e-06
+cycle=9000 time=3.0713866314031456e-02 dt=3.4202152862510814e-06
+cycle=10000 time=3.4029233000759454e-02 dt=3.2781099256250209e-06
+cycle=11000 time=3.7292187392128529e-02 dt=3.1244596916114319e-06
+cycle=12000 time=4.0411249969836575e-02 dt=3.3054368165829279e-06
+cycle=13000 time=4.3644857694307967e-02 dt=3.2258521939727140e-06
+cycle=14000 time=4.6929437642489712e-02 dt=3.2937692215074686e-06
+cycle=15000 time=5.0157593716824662e-02 dt=3.2520810361136265e-06
+too big
+too big
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.34785e+11 g/cm^3
+tau     = 71.2758
+time    = 0.0533224 s
+ncycle  = 1.6000000000000000e+04
+rho_new = 1.6215751229885199e+11 g/cm^3
+active  = 1.3613640008197038e+11 g/cm^3
+tau     = 7.1275776381259561e+01
+time    = 5.3322370641744318e-02 s
+too big
+too big
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.35156e+11 g/cm^3
+tau     = 71.2758
+time    = 0.0533224 s
+too big
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.35357e+11 g/cm^3
+tau     = 71.2758
+time    = 0.0533224 s
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.35061e+11 g/cm^3
+tau     = 71.2758
+time    = 0.0533224 s
+too big
+too big
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.35385e+11 g/cm^3
+tau     = 71.2758
+time    = 0.0533224 s
+too big
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.35139e+11 g/cm^3
+tau     = 71.2758
+time    = 0.0533224 s
+too big
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.35699e+11 g/cm^3
+tau     = 71.2758
+time    = 0.0533224 s
+ncycle  = 16000
+too big
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.35337e+11 g/cm^3
+tau     = 71.2758
+time    = 0.0533224 s
+rho_new = 1.62158e+11 g/cm^3
+too big
+too big
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.35239e+11 g/cm^3
+tau     = 71.2758
+time    = 0.0533224 s
+active  = 1.34405e+11 g/cm^3
+too big
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.36061e+11 g/cm^3
+tau     = 71.2758
+tau     = 71.2758
+time    = 0.0533224 s
+time    = 0.0533224 s
+too big
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.35025e+11 g/cm^3
+tau     = 71.2758
+time    = 0.0533224 s
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.36525e+11 g/cm^3
+too big
+tau     = 71.2758
+too big
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.33522e+11 g/cm^3
+tau     = 71.2758
+time    = 0.0533224 s
+time    = 0.0533224 s
+ncycle  = 16000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.34277e+11 g/cm^3
+tau     = 71.2758
+time    = 0.0533224 s
+cycle=16000 time=5.3322370641744318e-02 dt=3.0975459067187547e-06
+cycle=17000 time=5.6586720082547420e-02 dt=3.3555256678207406e-06
+cycle=18000 time=5.9806792655721613e-02 dt=3.2896103651840472e-06
+cycle=19000 time=6.3088522010689416e-02 dt=3.3005473568600144e-06
+cycle=20000 time=6.6366190023272140e-02 dt=3.3573421520519803e-06
+cycle=21000 time=6.9584869428927096e-02 dt=3.1155641195935666e-06
+cycle=22000 time=7.2699511993665283e-02 dt=3.0495567751896697e-06
+cycle=23000 time=7.5737999329245423e-02 dt=3.1547001846540677e-06
+cycle=24000 time=7.8944661966234342e-02 dt=2.9440812469867318e-06
+cycle=25000 time=8.2013500543654139e-02 dt=3.2537789418835784e-06
+cycle=26000 time=8.5165077796808333e-02 dt=2.8307265688323561e-06
+cycle=27000 time=8.8168982832453030e-02 dt=3.2200578425880463e-06
+cycle=28000 time=9.1278164352124228e-02 dt=2.8969743268974765e-06
+cycle=29000 time=9.4283553568846434e-02 dt=3.1243582259638351e-06
+cycle=30000 time=9.7375937342572466e-02 dt=2.9754147750394449e-06
+cycle=31000 time=1.0016440669788994e-01 dt=3.0431643078259356e-06
+too big
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.36493e+11 g/cm^3
+tau     = 72.2967
+time    = 0.103147 s
+ncycle  = 3.2000000000000000e+04
+rho_new = 1.6215751229885199e+11 g/cm^3
+active  = 1.1735095662669067e+11 g/cm^3
+tau     = 7.2296701819078550e+01
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.17638e+11 g/cm^3
+tau     = 72.2967
+time    = 0.103147 s
+time    = 1.0314680867086726e-01 s
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.42426e+11 g/cm^3
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.45744e+11 g/cm^3
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.36731e+11 g/cm^3
+tau     = 72.2967
+time    = 0.103147 s
+tau     = 72.2967
+time    = 0.103147 s
+tau     = 72.2967
+time    = 0.103147 s
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.43681e+11 g/cm^3
+tau     = 72.2967
+time    = 0.103147 s
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.19882e+11 g/cm^3
+tau     = 72.2967
+time    = 0.103147 s
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.47325e+11 g/cm^3
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.22765e+11 g/cm^3
+tau     = 72.2967
+time    = 0.103147 s
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.44995e+11 g/cm^3
+tau     = 72.2967
+time    = 0.103147 s
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.28261e+11 g/cm^3
+tau     = 72.2967
+time    = 0.103147 s
+tau     = 72.2967
+time    = 0.103147 s
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.46677e+11 g/cm^3
+tau     = 72.2967
+time    = 0.103147 s
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.20233e+11 g/cm^3
+tau     = 72.2967
+time    = 0.103147 s
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.31514e+11 g/cm^3
+tau     = 72.2967
+time    = 0.103147 s
+too big
+ncycle  = 32000
+rho_new = 1.62158e+11 g/cm^3
+active  = 1.26532e+11 g/cm^3
+tau     = 72.2967
+time    = 0.103147 s
+cycle=32000 time=1.0314680867086726e-01 dt=2.8087398919294173e-06
+Using USER inner BC 0.
+Using Matts's HelmEOS 
+Using Ye passive scalars in HEOS 
+Using Temp passive scalars in HELMEOS
+In HEOS Eta   -0.00192356
+ERR (e_int): 0.0000e+00, rho: 3.3578e+08,  Temp: -2.7487e+09 
+e * rho       = 5.26712e+28 erg/cm^3
+denerdt * den = 4.75294e+18erg/cm^3/s?
+Cs^2          = 1.56802e+19cm^2/s^2
+dpres/drho    = 3.61321e+18erg/g
+eta_ele       = 0.153764
+gam1          = 1.38011
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Negative var
+
+[p0836.ten.osc.edu:mpi_rank_175][error_sighandler] Caught error: Aborted (signal 6)
+srun: error: p0836: task 175: Aborted (core dumped)
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 33298784.0 ON p0832 CANCELLED AT 2025-01-21T17:08:36 ***
+slurmstepd: error: *** JOB 33298784 ON p0832 CANCELLED AT 2025-01-21T17:08:36 ***

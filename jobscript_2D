@@ -1,0 +1,61 @@
+#!/bin/bash
+#SBATCH --account=PAS2229
+#SBATCH --time=3:00:00
+#SBATCH --job-name=athena
+#SBATCH --nodes=7
+#SBATCH --ntasks=256
+#SBATCH --mail-type=ALL
+#SBATCH --export=ALL
+#SBATCH --open-mode=append
+
+module load intel/18.0.3
+module load intelmpi/2019.7
+module load hdf5
+module load miniconda3
+unset I_MPI_PMI_LIBRARY
+set -x
+cd $SLURM_SUBMIT_DIR
+
+cores=256
+athinput=athinput.accretion_auto
+txtfilename=Mach_3.0_RPNS_30_MPNS_1.4_Enue_12.6156_Enueb_18.9234_Tau_0.666666_Mdot_0.7_Lnu_40.txt
+IC_RhoE=8.559069829822928e6
+IC_RhoB=1.671726930916e11
+IC_vE=-1.301642145460e9
+Mach=3.0
+tmax=7.5e-1
+d_t=3.75e-3
+rMin=30.0e5
+rMax=1.0e8
+nR=256
+nTheta=128
+rScale=1.0137917322212853
+eosdir=helmeos/helm_table.dat
+eps_nueb=18.9234
+eps_nue=12.6156
+GM=1.8585255780000003e26
+Lnu=40
+nCell_r=16
+nCell_theta=8
+DIRNAME=testrun_DIR
+
+pgen=accretion_SingleNR_FixedKappa_2D
+eos=general/helmholtz_gamma_etot
+nscalar=2
+echo ${pgen}
+echo ${eos}
+echo ${nscalar}
+echo ${HDF5_HOME}
+#echo 'Compiling new executable...'
+#python configure.py --prob ${pgen} --eos ${eos} --coord spherical_polar --nscalars ${nscalar} -h5double -mpi -hdf5 --hdf5_path=${HDF5_HOME}
+#make clean
+#make
+
+mpiexec -n ${cores} bin/athena -i athinput.accretion_auto -d testrun_DIR 
+
+#mpiexec -n ${cores} bin/athena -i ${athinput} ${txtfilename} problem/rho_f=${IC_RhoE} problem/rho_0=${IC_RhoB} \
+#	problem/v_f=${IC_vE} problem/MachNumber=${Mach} time/tlim=${tmax} output1/dt=${d_t} output2/dt=${d_t} output4/dt=${d_t} \
+#	mesh/x1min=${rMin} mesh/x1max=${rMax} mesh/nx1=${nR} mesh/nx2=${nTheta} mesh/x1rat=${rScale} hydro/eos_file_name=${eosdir} \
+#	problem/eps_nubar=${eps_nueb} problem/eps_nu=${eps_nue} problem/GM=${GM} \
+#	problem/L_nubar=${Lnu} problem/L_nu=${Lnu} problem/file=${txtfilename} \
+#	meshblock/nx1=${nCell_r} meshblock/nx2=${nCell_theta} -d ${DIRNAME}

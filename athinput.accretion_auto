@@ -1,0 +1,163 @@
+<comment>
+problem   = Accretion
+configure = --prob accretion_SingleNR_FixedKappa_2D --eos general/helmholtz_gamma_etot --coord spherical_polar --nscalars 2 -h5double -mpi -hdf5 --hdf5_path=${HDF5_HOME}
+
+<job>
+problem_id = accretion  # problem ID: basename of output filenames
+
+<output1>
+file_type = hdf5      # Binary data dump
+variable  = prim      # variables to be output
+id        = prim
+dt        = 3.75e-3    # time increment between outputs
+xdmf      = true      # write xdmf files
+
+<output2>
+file_type = hdf5      # Binary data dump
+variable  = uov       # variables to be output
+id        = uov
+dt        = 3.75e-3   # time increment between outputs
+xdmf      = true      # write xdmf files
+
+<output3>
+file_type = rst
+id        = rst
+dt        = 5.0e-2
+
+<output4>
+file_type = hdf5
+variable  = cons
+id        = cons
+dt        = 3.75e-3
+xdmf      = true
+
+<time>
+cfl_number = 0.3   # The Courant, Friedrichs, & Lewy (CFL) Number
+nlim       = -1    # cycle limit
+tlim       = 7.5e-1  # time limit
+integrator = vl2   # time integration algorithm
+xorder     = 2     # order of spatial reconstruction
+ncycle_out = 1000  # interval for stdout summary info, used to be e^-4
+
+<mesh>
+nx1    = 256                # Number of zones in X1-direction
+x1min  = 3.0e6              # minimum value of X1 |
+x1max  = 1.0e8              # maximum value of X1 |
+x1rat  = 1.0137917322212853 # (x1max/x1min)^(1.0/nx1) log spacing ratio
+ix1_bc = user               # inner-X1 boundary flag
+ox1_bc = user               # inner-X1 boundary flag
+
+nx2    = 128
+x2min  = 0.0                 # minimum theta
+x2max  = 3.1415926535897931  # maximum theta (pi)
+ix2_bc = polar_wedge         # upper boundary
+ox2_bc = polar_wedge         # lower boundary
+
+nx3    = 1                  # number of cells in phi-direction
+x3min  = 0.0                # minimum phi
+x3max  = 6.283185307179586  # maximum phi (2*pi)
+ix3_bc = periodic           # clockwise boundary
+ox3_bc = periodic           # counterclockwise boundary
+
+<meshblock>
+
+nx1 = 16
+nx2 = 8
+nx3 = 1
+
+<hydro>
+# Helmholtz EoS values
+eos_file_name        = helmeos/helm_table.dat  # Specify EOS table filename (if used)
+eos_file_type        = helm # Specify EOS table file type [auto,ascii,binary,hdf5]
+helm_assume_defaults = true
+helm_Tfloor          = true
+helm_nmax            = 20000
+helm_abar            = 1.0
+helm_zbar            = 0.45    #Proton fraction = electron fraction
+helm_ye_index        = 0
+helm_temp_index      = 1
+eos_rho_unit         = 1.0
+eos_egas_unit        = 1.0
+dfloor               = 1.0
+pfloor               = 1.0
+T_floor              = 1.0e3
+nsSize               = 2
+
+eos_ye_index = 0
+eos_t_index  = 1
+Ye_0         = 1.244389053041e-1 #1.35e-1
+Ye_f         = 4.642857000000e-1
+Ye_Constant  = 0.1
+
+<problem>
+# Boundary Condition values (Assuming InflowInnerX1)
+inner_BC_choice = 0                 # 0 = InflowInnerX1
+rho_0           = 1.671726930916e11 # g/cm^3
+rho_f           = 8.559069829822928e6 #8.216341882032e6  #5.303657585436e6  # g/cm^3
+v_f             = -1.301642145460e9 # cm/s
+MachNumber      = 3.0
+mdot            = 0.7                # Msun/s
+
+# These things are unnecessary, dont worry about them
+T_0             = 4.4e10            # K
+p_f             = 7.638368087523e24 # erg/cm^3
+p_0             = 1.099178944491e30  #1.190178041742e30  # erg/cm^3
+t_rho0_perturb  = 0.0               # physical time at which integration for rho0 begins
+
+# Constants
+GM = 1.8585255780000003e26 # 1.4 Msun NS
+Na = 6.022e23      # Avagadro's constant
+
+# Double_NR parameters
+Tg_doubleNR        = 3.068907622306e10
+Yeg_doubleNR       = 0.01 #0.01
+DeltaTg_doubleNR   = 1.0e-3
+DeltaYeg_doubleNR  = 1.0e-3
+Tolerance_doubleNR = 1.0e-4 #5.0e-3
+Modifier_doubleNR  = 1.0e0 #1.0e-1
+MaxC_doubleNR      = 20
+eps_doubleNR       = 1.0e-10
+#qdot_factor        = 1.0e21
+#ydot_factor        = 1.0e2
+
+# Single_NR parameters
+Tg_NR        = 3.0e10 #1.115997623874e9 #3.068907622306e10
+Yeg_NR       = 0.007 #0.01
+DeltaTg_NR   = 1.0e-3
+DeltaYeg_NR  = 1.0e-3
+Tolerance_NR = 1.0e-12 #5.0e-3
+Modifier_NR  = 1.0e0 #1.0e-1
+maxC_NR      = 20
+eps_NR       = 1.0e-10
+
+# Optical depth quanties & parameters
+Ga           = 1.26     # axial coupling vector, MeV
+Delta        = 1.293    # np mass difference, MeV
+MeCsq        = 0.511    # e rest-mass energy, MeV
+Sigma0       = 1.76e-44 # weak interaction cross section, cm^2
+Tau          = 0.66666  # Optical depth set to 2/3
+Tau_Eps      = 2.0e-2   # Optical depth tolerance (Make sure that Tau_Eps < Rho_Eps)
+Rho_Eps      = 3.0e-2   # rho_0 modifier
+ModuloNumber = 16000    # number of cycles in between rho_0 perturbations.
+
+# B-field terms
+B_0   = 0   # initial B-field strength in G
+rot   = 0.0 # Ratio of Omega*R to vesc at r=R
+mag   = 0.0 # Ratio of alfven speed to vesc at r=R
+alpha = 0.0 # angle of magnetosphere with respect to rotation axis
+
+# Neutrino properties
+T_cutoff  = 0.5  # Cutoff temperature (qdotQW), MeV
+L_nubar   = 40.0 # units of 1e51 ergs/s
+L_nu      = 40.0 # units of 1e51 ergs/s
+eps_nubar = 18.9234 # MeV, borrowed from Fernandez 2012
+eps_nu    = 12.6156 # MeV, borrowed from Fernandez 2012
+
+# IC data file
+file        = Mach_3.0_RPNS_30_MPNS_1.4_Enue_12.6156_Enueb_18.9234_Tau_0.666666_Mdot_0.7_Lnu_40.txt
+rows        = 256
+cols        = 4
+col_rho     = 0
+col_v       = 1
+col_T       = 2
+col_Ye      = 3
